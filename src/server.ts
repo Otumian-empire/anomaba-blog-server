@@ -4,8 +4,8 @@ import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
 import { Messages, StatusCode } from "./constants";
-import Environs from "./environs";
 import Api from "./controllers";
+import Environs from "./environs";
 
 const app = express();
 const port = Environs.PORT;
@@ -56,7 +56,7 @@ mongoose
       console.log(`[+] Listening server on ${port}`);
     });
   })
-  .catch((err) => {
+  .catch((_err) => {
     console.log(Messages.DATABASE_CONNECTION_ERROR);
   });
 
@@ -65,7 +65,7 @@ mongoose.connection
   .once("open", () => {
     console.log(Messages.DATABASE_CONNECTED);
   })
-  .on("error", function (error) {
+  .on("error", function (_error) {
     console.log(Messages.DATABASE_CONNECTION_ERROR);
   });
 
