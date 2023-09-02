@@ -3,9 +3,9 @@ import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
-import { Messages, StatusCode } from "./constants";
+import { Messages, StatusCode } from "./utils/constants";
 import Api from "./controllers";
-import Environs from "./environs";
+import Environs from "./utils/environs";
 
 const app = express();
 const port = Environs.PORT;
