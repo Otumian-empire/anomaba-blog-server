@@ -3,7 +3,7 @@ export interface BasicAuth {
   password: string;
 }
 
-export interface CreateArticle {
+export interface WriteArticle {
   title: string;
   content: string;
 }
