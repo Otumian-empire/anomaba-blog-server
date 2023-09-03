@@ -3,9 +3,10 @@ import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
-import { Messages, StatusCode } from "./utils/constants";
 import Api from "./controllers";
+import { Messages, StatusCode } from "./utils/constants";
 import Environs from "./utils/environs";
+import { httpLogger, logger } from "./utils/logger";
 
 const app = express();
 const port = Environs.PORT;
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(compression());
 app.use(cors({ credentials: true, origin: "*" }));
 app.disable("x-powered-by");
+app.use(httpLogger);
 
 // nginx proxy
 if (Environs.isProd()) {
@@ -53,20 +55,20 @@ mongoose
   .connect(Environs.MONGOOSE_URI)
   .then(() => {
     app.listen(port, () => {
-      console.log(`[+] Listening server on ${port}`);
+      logger.info(`[+] Listening server on ${port}`);
     });
   })
   .catch((_err) => {
-    console.log(Messages.DATABASE_CONNECTION_ERROR);
+    logger.error(Messages.DATABASE_CONNECTION_ERROR);
   });
 
 // listening on the database connection
 mongoose.connection
   .once("open", () => {
-    console.log(Messages.DATABASE_CONNECTED);
+    logger.info(Messages.DATABASE_CONNECTED);
   })
   .on("error", function (_error) {
-    console.log(Messages.DATABASE_CONNECTION_ERROR);
+    logger.error(Messages.DATABASE_CONNECTION_ERROR);
   });
 
 // show database logging during development
