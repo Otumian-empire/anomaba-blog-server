@@ -46,12 +46,9 @@ export default async function SignUp(
     }
 
     // Create jwt
- const token =    generateJwt({
-        _id: newUser._id
-      })
-    
-
-
+    const token = generateJwt({
+      _id: newUser._id
+    });
 
     // Return success message
     return res.status(StatusCode.OK).json({
