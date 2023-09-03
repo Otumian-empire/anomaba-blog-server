@@ -4,8 +4,9 @@ import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
 import Api from "./controllers";
-import { Messages, StatusCode } from "./utils/constants";
+import { Messages } from "./utils/constants";
 import Environs from "./utils/environs";
+import { FailureResponse } from "./utils/handler";
 import { httpLogger, logger } from "./utils/logger";
 
 const app = express();
@@ -33,24 +34,15 @@ app.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
 
   if (Environs.isDev()) {
     logger.debug(error);
-    return res.status(StatusCode.INTERNAL_ERROR).json({
-      success: false,
-      message: error.message
-    });
+    return FailureResponse(res, error.message);
   }
 
-  return res.status(StatusCode.OK).json({
-    success: false,
-    message: Messages.GLOBAL_ERROR
-  });
+  return FailureResponse(res, Messages.GLOBAL_ERROR);
 });
 
 // Not Found Error handler
 app.use((_req: Request, res: Response, _next: NextFunction) => {
-  return res.status(StatusCode.NOT_FOUND_ERROR).json({
-    success: false,
-    message: Messages.NOT_FOUND_ERROR
-  });
+  return FailureResponse(res, Messages.NOT_FOUND_ERROR);
 });
 
 // make sure that database is connected before listening to the port

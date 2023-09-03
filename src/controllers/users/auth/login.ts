@@ -1,10 +1,11 @@
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 
-import { BasicAuth } from "../../../abstractions/request.interface";
+import { BasicAuth } from "../../../abstractions/web.interface";
 import { generateJwt } from "../../../auth/jwt";
 import userModel from "../../../models/user.model";
-import { Messages, StatusCode } from "../../../utils/constants";
+import { Messages } from "../../../utils/constants";
+import { FailureResponse, SuccessResponse } from "../../../utils/handler";
 
 export default async function Login(
   req: Request,
@@ -20,10 +21,7 @@ export default async function Login(
     );
 
     if (!user) {
-      return res.status(StatusCode.OK).json({
-        status: false,
-        message: Messages.ACCOUNT_NOT_FOUND
-      });
+      return FailureResponse(res, Messages.ACCOUNT_NOT_FOUND);
     }
 
     // Verify the password
@@ -33,10 +31,7 @@ export default async function Login(
     );
 
     if (!isValidPassword) {
-      return res.status(StatusCode.OK).json({
-        status: false,
-        message: Messages.ACCOUNT_NOT_FOUND
-      });
+      return FailureResponse(res, Messages.ACCOUNT_NOT_FOUND);
     }
 
     // Create jwt
@@ -45,8 +40,7 @@ export default async function Login(
     });
 
     // Return success message
-    return res.status(StatusCode.OK).json({
-      success: true,
+    return SuccessResponse(res, {
       message: Messages.LOGGED_IN_SUCCESSFULLY,
       data: {
         accessToken: token,

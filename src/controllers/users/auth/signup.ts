@@ -1,10 +1,11 @@
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 
-import { BasicAuth } from "../../../abstractions/request.interface";
+import { BasicAuth } from "../../../abstractions/web.interface";
 import { generateJwt } from "../../../auth/jwt";
 import userModel from "../../../models/user.model";
-import { Constants, Messages, StatusCode } from "../../../utils/constants";
+import { Constants, Messages } from "../../../utils/constants";
+import { FailureResponse, SuccessResponse } from "../../../utils/handler";
 
 export default async function SignUp(
   req: Request,
@@ -20,10 +21,7 @@ export default async function SignUp(
     );
 
     if (isExistingUser) {
-      return res.status(StatusCode.OK).json({
-        status: false,
-        message: Messages.ACCOUNT_ALREADY_EXIST
-      });
+      return FailureResponse(res, Messages.ACCOUNT_ALREADY_EXIST);
     }
 
     // Hash the password
@@ -39,10 +37,7 @@ export default async function SignUp(
     });
 
     if (!newUser) {
-      return res.status(StatusCode.OK).json({
-        status: false,
-        message: Messages.ACCOUNT_NOT_CREATED
-      });
+      return FailureResponse(res, Messages.ACCOUNT_NOT_CREATED);
     }
 
     // Create jwt
@@ -51,8 +46,7 @@ export default async function SignUp(
     });
 
     // Return success message
-    return res.status(StatusCode.OK).json({
-      success: true,
+    return SuccessResponse(res, {
       message: Messages.ACCOUNT_CREATED_SUCCESSFULLY,
       data: {
         accessToken: token,
