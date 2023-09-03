@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
 import { NextFunction, Request, Response } from "express";
 
-import { BasicAuth } from "../../abstractions/request.interface";
-import { generateJwt } from "../../auth/jwt";
-import userModel from "../../models/user.model";
-import { Constants, Messages, StatusCode } from "../../utils/constants";
+import { BasicAuth } from "../../../abstractions/request.interface";
+import { generateJwt } from "../../../auth/jwt";
+import userModel from "../../../models/user.model";
+import { Constants, Messages, StatusCode } from "../../../utils/constants";
 
 export default async function SignUp(
   req: Request,
