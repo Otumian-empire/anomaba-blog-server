@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from "express";
 import { BasicAuth } from "../../../abstractions/request.interface";
 import { generateJwt } from "../../../auth/jwt";
 import userModel from "../../../models/user.model";
-import { Constants, Messages, StatusCode } from "../../../utils/constants";
+import { Messages, StatusCode } from "../../../utils/constants";
 
 export default async function Login(
   req: Request,
@@ -15,47 +15,45 @@ export default async function Login(
     const payload: BasicAuth = req.body;
 
     // Check if username already exists
-    const isExistingUser = await Promise.resolve(
+    const user = await Promise.resolve(
       userModel.findOne({ username: payload.username })
     );
 
-    if (isExistingUser) {
+    if (!user) {
       return res.status(StatusCode.OK).json({
         status: false,
-        message: Messages.ACCOUNT_ALREADY_EXIST
+        message: Messages.ACCOUNT_NOT_FOUND
       });
     }
 
-    // Hash the password
-    const hashedPassword = await bcrypt.hash(
+    // Verify the password
+    const isValidPassword = await bcrypt.compare(
       payload.password,
-      Constants.SALT_ROUNDS
+      user.password
     );
 
-    // Create user row
-    const newUser = await userModel.create({
-      username: payload.username,
-      password: hashedPassword
-    });
-
-    if (!newUser) {
+    if (!isValidPassword) {
       return res.status(StatusCode.OK).json({
         status: false,
-        message: Messages.ACCOUNT_NOT_CREATED
+        message: Messages.ACCOUNT_NOT_FOUND
       });
     }
 
     // Create jwt
     const token = generateJwt({
-      _id: newUser._id
+      _id: user._id
     });
 
     // Return success message
     return res.status(StatusCode.OK).json({
       success: true,
-      message: Messages.ACCOUNT_CREATED_SUCCESSFULLY,
+      message: Messages.LOGGED_IN_SUCCESSFULLY,
       data: {
-        accessToken: token
+        accessToken: token,
+        user: {
+          _id: user._id,
+          username: user.username
+        }
       }
     });
   } catch (error) {
