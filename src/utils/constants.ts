@@ -13,9 +13,16 @@ export const StatusCode = {
 };
 
 export const Messages = {
-  DATABASE_CONNECTED: "Database connected successfully",
+  DATABASE_CONNECTED: "database connected successfully",
+  ACCOUNT_ALREADY_EXIST: "account already exist, please try logging in",
+  ACCOUNT_CREATED_SUCCESSFULLY: "account created successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
-  DATABASE_CONNECTION_ERROR: "Database not connected"
+  DATABASE_CONNECTION_ERROR: "Database not connected",
+  ACCOUNT_NOT_CREATED: "could not create account try again"
+};
+
+export const RequestType = {
+  BODY: "body"
 };
