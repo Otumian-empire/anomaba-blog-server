@@ -29,7 +29,10 @@ app.use("/api", Api);
 
 // Server error handle
 app.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
+  logger.error(error);
+
   if (Environs.isDev()) {
+    logger.debug(error);
     return res.status(StatusCode.INTERNAL_ERROR).json({
       success: false,
       message: error.message
