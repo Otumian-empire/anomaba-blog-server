@@ -55,7 +55,11 @@ export default async function SignUp(
       success: true,
       message: Messages.ACCOUNT_CREATED_SUCCESSFULLY,
       data: {
-        accessToken: token
+        accessToken: token,
+        user: {
+          _id: newUser._id,
+          username: newUser.username
+        }
       }
     });
   } catch (error) {
