@@ -12,18 +12,13 @@ export default async function ReadOneArticle(
   next: NextFunction
 ) {
   try {
-    // Get the user object
-    // @ts-expect-error
-    const user: AuthUser = req.user;
-
-    // Get article id from request params
+     // Get article id from request params
     const _id = req.params._id;
 
     // Read all articles with user id as the current user
     const article = await Promise.resolve(
       articleModel
         .findOne({
-          user: new mongoose.Types.ObjectId(user._id),
           _id: new mongoose.Types.ObjectId(_id)
         })
         .select("-__v")

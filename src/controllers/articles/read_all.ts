@@ -1,7 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import mongoose from "mongoose";
 
-import { AuthUser } from "../../abstractions/auth.interface";
 import articleModel from "../../models/article.model";
 import { Messages } from "../../utils/constants";
 import {
@@ -16,10 +14,6 @@ export default async function ReadAllArticles(
   next: NextFunction
 ) {
   try {
-    // Get the user object
-    // @ts-expect-error
-    const user: AuthUser = req.user;
-
     // Get pagination parameters request query
     const { pageNumber, pageSize } = setPaginationParams(
       req.query.pageNumber?.toString(),
@@ -29,17 +23,19 @@ export default async function ReadAllArticles(
     // Read all articles with user id as the current user
     const [articles, count] = await Promise.all([
       articleModel
-        .find({
-          user: new mongoose.Types.ObjectId(user._id)
-        })
+        .find()
         .select("-__v")
+        .populate({
+          path: "user",
+          select: [
+              "username",
+          ]
+      })
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
         .exec(),
       articleModel
-        .find({
-          user: new mongoose.Types.ObjectId(user._id)
-        })
+        .find()
         .count()
     ]);
 
