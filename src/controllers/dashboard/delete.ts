@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 import { AuthUser } from "../../abstractions/auth.interface";
 import articleModel from "../../models/article.model";
+import commentModel from "../../models/comment.model";
 import { Messages } from "../../utils/constants";
 import { FailureResponse, SuccessMessageResponse } from "../../utils/handler";
 
@@ -17,17 +18,25 @@ export default async function DeleteArticle(
     const user: AuthUser = req.user;
 
     // Get article _id from request params
-    const _id = req.params._id;
+    const articleId = req.params._id;
 
     // Insert article with user detail
     const article = await articleModel.findOneAndDelete({
-      _id: new mongoose.Types.ObjectId(_id),
+      _id: new mongoose.Types.ObjectId(articleId),
       user: new mongoose.Types.ObjectId(user._id)
     });
 
     if (!article) {
       return FailureResponse(res, Messages.ARTICLE_NOT_FOUND);
     }
+
+    // Delete all articles under this article
+    await commentModel.deleteMany({
+      user: new mongoose.Types.ObjectId(user._id),
+      article: new mongoose.Types.ObjectId(articleId)
+    });
+
+    await article.deleteOne();
 
     // return success response
     return SuccessMessageResponse(res, Messages.ARTICLE_DELETED_SUCCESSFULLY);
