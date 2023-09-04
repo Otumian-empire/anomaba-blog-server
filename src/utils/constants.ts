@@ -28,6 +28,7 @@ export const Messages = {
   COMMENT_READ_SUCCESSFULLY: "comment read successfully",
   COMMENTS_READ_SUCCESSFULLY: "comments read successfully",
   COMMENT_UPDATED_SUCCESSFULLY: "comment updated successfully",
+  COMMENT_DELETED_SUCCESSFULLY: "comment deleted successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",

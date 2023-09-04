@@ -10,6 +10,7 @@ import {
   UpdateCommentValidation
 } from "../../validations/schemas";
 import CreateComment from "./create";
+import DeleteComment from "./delete";
 import ReadAllComment from "./read_all";
 import ReadOneComment from "./read_one";
 import UpdateComment from "./update";
@@ -39,6 +40,12 @@ router.put(
   ValidationMiddleware(IdParameter, RequestType.PARAMS),
   ValidationMiddleware(UpdateCommentValidation),
   UpdateComment
+);
+
+router.delete(
+  "/:_id",
+  ValidationMiddleware(IdParameter, RequestType.PARAMS),
+  DeleteComment
 );
 
 export default router;
