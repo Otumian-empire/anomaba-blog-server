@@ -18,3 +18,8 @@ export const PaginationQuery = Joi.object().keys({
   pageNumber: Joi.number().positive().optional(),
   pageSize: Joi.number().positive().optional()
 });
+
+export const AddComment = Joi.object().keys({
+  content: Joi.string().required(),
+  articleId: Joi.string().required()
+});
