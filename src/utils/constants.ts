@@ -25,6 +25,7 @@ export const Messages = {
   ARTICLES_READ_SUCCESSFULLY: "articles read successfully",
   ARTICLE_DELETED_SUCCESSFULLY: "article deleted successfully",
   COMMENT_CREATED_SUCCESSFULLY: "comment created successfully",
+  COMMENT_READ_SUCCESSFULLY: "comment read successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
@@ -38,7 +39,8 @@ export const Messages = {
   ARTICLE_NOT_CREATED: "could not create article",
   ARTICLE_NOT_UPDATED: "could not update article",
   ARTICLE_NOT_FOUND: "article not found",
-  COMMENT_NOT_CREATED: "could not create comment"
+  COMMENT_NOT_CREATED: "could not create comment",
+  COMMENT_NOT_FOUND: "comment not found"
 };
 
 export const RequestType = {
