@@ -3,26 +3,38 @@ import { Router } from "express";
 import AuthMiddleware from "../../auth/middleware";
 import { RequestType } from "../../utils/constants";
 import ValidationMiddleware from "../../validations/middleware";
-import { IdParameter, WriteArticle } from "../../validations/schemas";
+import {
+  IdParameter,
+  PaginationQuery,
+  WriteArticle
+} from "../../validations/schemas";
 import CreateArticle from "./create";
+import ReadAllArticles from "./read_all";
 import UpdateArticle from "./update";
 
 const router = Router();
 
+router.use(AuthMiddleware);
+
 // Article end points
 router.post(
   "/",
-  AuthMiddleware,
+
   ValidationMiddleware(WriteArticle),
   CreateArticle
 );
 
 router.put(
   "/:_id",
-  AuthMiddleware,
   ValidationMiddleware(IdParameter, RequestType.PARAMS),
   ValidationMiddleware(WriteArticle),
   UpdateArticle
+);
+
+router.get(
+  "/",
+  ValidationMiddleware(PaginationQuery, RequestType.QUERY),
+  ReadAllArticles
 );
 
 export default router;

@@ -13,3 +13,8 @@ export const WriteArticle = Joi.object().keys({
 export const IdParameter = Joi.object().keys({
   _id: Joi.string().required()
 });
+
+export const PaginationQuery = Joi.object().keys({
+  pageNumber: Joi.number().positive().optional(),
+  pageSize: Joi.number().positive().optional()
+});

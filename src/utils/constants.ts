@@ -21,6 +21,7 @@ export const Messages = {
   LOGGED_IN_SUCCESSFULLY: "logged in successfully",
   ARTICLE_CREATED_SUCCESSFULLY: "article created successfully",
   ARTICLE_UPDATED_SUCCESSFULLY: "article updated successfully",
+  ARTICLE_READ_SUCCESSFULLY: "article read successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
@@ -36,5 +37,12 @@ export const Messages = {
 
 export const RequestType = {
   BODY: "body",
-  PARAMS: "params"
+  PARAMS: "params",
+  QUERY: "query"
+};
+
+export const Pagination = {
+  PAGE_NUMBER: 1,
+  PAGE_SIZE: 20,
+  PAGE_SIZE_OF_THIRTY_PERCENT: 0.3
 };
