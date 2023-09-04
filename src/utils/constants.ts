@@ -23,6 +23,7 @@ export const Messages = {
   ARTICLE_UPDATED_SUCCESSFULLY: "article updated successfully",
   ARTICLE_READ_SUCCESSFULLY: "article read successfully",
   ARTICLES_READ_SUCCESSFULLY: "articles read successfully",
+  ARTICLE_DELETED_SUCCESSFULLY: "article deleted successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
