@@ -45,7 +45,7 @@ export default async function ReadAllArticles(
 
     // return success response
     return SuccessResponse(res, {
-      message: Messages.ARTICLE_READ_SUCCESSFULLY,
+      message: Messages.ARTICLES_READ_SUCCESSFULLY,
       data: {
         rows: articles,
         pagination: getPaginationParams(count, pageNumber, pageSize)
