@@ -57,7 +57,7 @@ export async function verifyJwt<T extends JwtPayload>(jwtString: string) {
     logger.error(error);
 
     if (error instanceof TokenExpiredError) {
-      throw new Error(Messages.INVALID_AUTHENTICATION);
+      throw new Error(Messages.PLEASE_LOGIN);
     }
 
     throw new Error(Messages.GLOBAL_ERROR);

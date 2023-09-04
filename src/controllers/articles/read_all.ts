@@ -27,16 +27,12 @@ export default async function ReadAllArticles(
         .select("-__v")
         .populate({
           path: "user",
-          select: [
-              "username",
-          ]
-      })
+          select: ["username"]
+        })
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
         .exec(),
-      articleModel
-        .find()
-        .count()
+      articleModel.find().count()
     ]);
 
     // return success response

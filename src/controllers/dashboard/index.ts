@@ -19,22 +19,26 @@ const router = Router();
 router.use(AuthMiddleware);
 
 router.post("/", ValidationMiddleware(WriteArticle), CreateArticle);
+
 router.put(
   "/:_id",
   ValidationMiddleware(IdParameter, RequestType.PARAMS),
   ValidationMiddleware(WriteArticle),
   UpdateArticle
 );
+
 router.get(
   "/",
   ValidationMiddleware(PaginationQuery, RequestType.QUERY),
   ReadAllArticles
 );
+
 router.get(
   "/:_id",
   ValidationMiddleware(IdParameter, RequestType.PARAMS),
   ReadOneArticle
 );
+
 router.delete(
   "/:_id",
   ValidationMiddleware(IdParameter, RequestType.PARAMS),

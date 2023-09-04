@@ -33,6 +33,7 @@ export const Messages = {
   UNAUTHORIZED: "unauthorized request",
   FORBIDDEN: "forbidden request",
   INVALID_AUTHENTICATION: "invalid authentication",
+  PLEASE_LOGIN:"Invalid authentication, please login",
   ARTICLE_NOT_CREATED: "could not create article",
   ARTICLE_NOT_UPDATED: "could not update article",
   ARTICLE_NOT_FOUND: "article not found"

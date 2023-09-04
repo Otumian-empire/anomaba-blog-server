@@ -12,7 +12,7 @@ export default async function ReadOneArticle(
   next: NextFunction
 ) {
   try {
-     // Get article id from request params
+    // Get article id from request params
     const _id = req.params._id;
 
     // Read all articles with user id as the current user
