@@ -9,3 +9,7 @@ export const WriteArticle = Joi.object().keys({
   title: Joi.string().required(),
   content: Joi.string().required()
 });
+
+export const IdParameter = Joi.object().keys({
+  _id: Joi.string().required()
+});

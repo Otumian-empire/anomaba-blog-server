@@ -20,6 +20,7 @@ export const Messages = {
   ACCOUNT_CREATED_SUCCESSFULLY: "account created successfully",
   LOGGED_IN_SUCCESSFULLY: "logged in successfully",
   ARTICLE_CREATED_SUCCESSFULLY: "article created successfully",
+  ARTICLE_UPDATED_SUCCESSFULLY: "article updated successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
@@ -29,9 +30,11 @@ export const Messages = {
   UNAUTHORIZED: "unauthorized request",
   FORBIDDEN: "forbidden request",
   INVALID_AUTHENTICATION: "invalid authentication",
-  ARTICLE_NOT_CREATED: "could not create article"
+  ARTICLE_NOT_CREATED: "could not create article",
+  ARTICLE_NOT_UPDATED: "could not update article"
 };
 
 export const RequestType = {
-  BODY: "body"
+  BODY: "body",
+  PARAMS: "params"
 };
