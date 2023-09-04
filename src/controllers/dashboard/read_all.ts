@@ -17,7 +17,7 @@ export default async function ReadAllArticles(
 ) {
   try {
     // Get the user object
-    // @ts-expect-error
+    // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
 
     // Get pagination parameters request query

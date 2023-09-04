@@ -14,7 +14,7 @@ export default async function UpdateArticle(
 ) {
   try {
     // Get the user object
-    // @ts-expect-error
+    // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
 
     // Get article _id from request params

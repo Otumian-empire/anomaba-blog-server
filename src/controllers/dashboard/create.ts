@@ -14,7 +14,7 @@ export default async function CreateArticle(
 ) {
   try {
     // Get the user object
-    // @ts-expect-error
+    // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
 
     // Get the request body
