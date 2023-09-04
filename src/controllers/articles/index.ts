@@ -10,6 +10,7 @@ import {
 } from "../../validations/schemas";
 import CreateArticle from "./create";
 import ReadAllArticles from "./read_all";
+import ReadOneArticle from "./read_one";
 import UpdateArticle from "./update";
 
 const router = Router();
@@ -17,12 +18,7 @@ const router = Router();
 router.use(AuthMiddleware);
 
 // Article end points
-router.post(
-  "/",
-
-  ValidationMiddleware(WriteArticle),
-  CreateArticle
-);
+router.post("/", ValidationMiddleware(WriteArticle), CreateArticle);
 
 router.put(
   "/:_id",
@@ -35,6 +31,12 @@ router.get(
   "/",
   ValidationMiddleware(PaginationQuery, RequestType.QUERY),
   ReadAllArticles
+);
+
+router.get(
+  "/:_id",
+  ValidationMiddleware(IdParameter, RequestType.PARAMS),
+  ReadOneArticle
 );
 
 export default router;

@@ -22,6 +22,7 @@ export const Messages = {
   ARTICLE_CREATED_SUCCESSFULLY: "article created successfully",
   ARTICLE_UPDATED_SUCCESSFULLY: "article updated successfully",
   ARTICLE_READ_SUCCESSFULLY: "article read successfully",
+  ARTICLES_READ_SUCCESSFULLY: "articles read successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
@@ -32,7 +33,8 @@ export const Messages = {
   FORBIDDEN: "forbidden request",
   INVALID_AUTHENTICATION: "invalid authentication",
   ARTICLE_NOT_CREATED: "could not create article",
-  ARTICLE_NOT_UPDATED: "could not update article"
+  ARTICLE_NOT_UPDATED: "could not update article",
+  ARTICLE_NOT_FOUND: "article not found"
 };
 
 export const RequestType = {
