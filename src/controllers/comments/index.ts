@@ -6,11 +6,13 @@ import ValidationMiddleware from "../../validations/middleware";
 import {
   AddComment,
   IdParameter,
-  PaginationQuery
+  PaginationQuery,
+  UpdateCommentValidation
 } from "../../validations/schemas";
 import CreateComment from "./create";
 import ReadAllComment from "./read_all";
 import ReadOneComment from "./read_one";
+import UpdateComment from "./update";
 
 const router = Router();
 
@@ -30,6 +32,13 @@ router.get(
   ValidationMiddleware(PaginationQuery, RequestType.QUERY),
   ValidationMiddleware(IdParameter, RequestType.PARAMS),
   ReadAllComment
+);
+
+router.put(
+  "/:_id",
+  ValidationMiddleware(IdParameter, RequestType.PARAMS),
+  ValidationMiddleware(UpdateCommentValidation),
+  UpdateComment
 );
 
 export default router;

@@ -23,3 +23,7 @@ export const AddComment = Joi.object().keys({
   content: Joi.string().required(),
   articleId: Joi.string().required()
 });
+
+export const UpdateCommentValidation = Joi.object().keys({
+  content: Joi.string().required()
+});
