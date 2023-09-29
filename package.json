@@ -2,7 +2,7 @@
   "name": "anomaba-blog-server",
   "version": "1.0.0",
   "description": "Simple blog api",
-  "main": "src/server.js",
+  "main": "dist/server.js",
   "author": "otumian-empire@github.com",
   "license": "MIT",
   "private": true,
@@ -36,9 +36,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon  --exec yarn ts-node --files src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf ./dist && yarn tsc",
-    "format": "prettier --write ./src",
-    "prod": "node dist/server.js"
+    "build": "rimraf ./dist && tsc",
+    "format": "prettier --write ./src"
   },
   "packageManager": "yarn@3.3.0"
 }
