@@ -1,4 +1,3 @@
-import compression from "compression";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
@@ -15,7 +14,6 @@ const port = Environs.PORT;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(compression());
 app.use(cors({ credentials: true, origin: "*" }));
 app.disable("x-powered-by");
 app.use(httpLogger);
