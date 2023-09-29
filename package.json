@@ -34,11 +34,11 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "yarn ts-node --files src/server.js",
+    "start": "node dist/server.js",
     "dev": "nodemon  --exec yarn ts-node --files src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf ./dist && yarn tsc",
-    "format": "yarn prettier --write ./src",
+    "format": "prettier --write ./src",
     "prod": "node dist/server.js"
   },
   "packageManager": "yarn@3.3.0"
