@@ -24,6 +24,7 @@ export default async function ReadAllArticles(
     const [articles, count] = await Promise.all([
       articleModel
         .find()
+        .sort({ createdAt: -1 })
         .select("-__v")
         .populate({
           path: "user",

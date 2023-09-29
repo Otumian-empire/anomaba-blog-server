@@ -4,6 +4,7 @@ import articles from "./articles";
 import comments from "./comments";
 import dashboard from "./dashboard";
 import users from "./users";
+import categories from "./categories";
 
 const router = Router();
 
@@ -18,5 +19,8 @@ router.use("/articles", articles);
 
 // Comments
 router.use("/comments", comments);
+
+// Category
+router.use("/categories", categories);
 
 export default router;

@@ -5,7 +5,11 @@ import { AuthUser } from "../../abstractions/auth.interface";
 import articleModel from "../../models/article.model";
 import commentModel from "../../models/comment.model";
 import { Messages } from "../../utils/constants";
-import { FailureResponse, SuccessMessageResponse } from "../../utils/handler";
+import {
+  AuthFailureResponse,
+  FailureResponse,
+  SuccessMessageResponse
+} from "../../utils/handler";
 
 export default async function DeleteArticle(
   req: Request,
@@ -16,6 +20,10 @@ export default async function DeleteArticle(
     // Get the user object
     // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
+
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
 
     // Get article _id from request params
     const articleId = req.params._id;

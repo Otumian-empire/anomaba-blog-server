@@ -1,10 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
+import { AuthUser } from "../../abstractions/auth.interface";
 import commentModel from "../../models/comment.model";
 import { Messages } from "../../utils/constants";
-import { FailureResponse, SuccessResponse } from "../../utils/handler";
-import { AuthUser } from "../../abstractions/auth.interface";
+import {
+  AuthFailureResponse,
+  FailureResponse,
+  SuccessResponse
+} from "../../utils/handler";
 
 export default async function UpdateComment(
   req: Request,
@@ -15,6 +19,10 @@ export default async function UpdateComment(
     // Get the auth user, owner of this comment
     // @ts-expect-error: Expected authenticated user
     const user: AuthUser = req.user;
+
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
 
     // Get the comment's id
     const commentId = req.params._id;

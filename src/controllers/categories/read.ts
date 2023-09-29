@@ -1,16 +1,15 @@
 import { NextFunction, Request, Response } from "express";
-import mongoose from "mongoose";
 
 import { AuthUser } from "../../abstractions/auth.interface";
-import articleModel from "../../models/article.model";
+import categoryModel from "../../models/category.model";
 import { Messages } from "../../utils/constants";
 import {
   getPaginationParams,
   setPaginationParams
 } from "../../utils/functions";
-import { SuccessResponse } from "../../utils/handler";
+import { AuthFailureResponse, SuccessResponse } from "../../utils/handler";
 
-export default async function ReadAllArticles(
+export default async function ReadAllCategories(
   req: Request,
   res: Response,
   next: NextFunction
@@ -20,6 +19,10 @@ export default async function ReadAllArticles(
     // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
 
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
+
     // Get pagination parameters request query
     const { pageNumber, pageSize } = setPaginationParams(
       req.query.pageNumber?.toString(),
@@ -27,28 +30,22 @@ export default async function ReadAllArticles(
     );
 
     // Read all articles with user id as the current user
-    const [articles, count] = await Promise.all([
-      articleModel
-        .find({
-          user: new mongoose.Types.ObjectId(user._id)
-        })
+    const [categories, count] = await Promise.all([
+      categoryModel
+        .find()
         .sort({ createdAt: -1 })
         .select("-__v")
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
         .exec(),
-      articleModel
-        .find({
-          user: new mongoose.Types.ObjectId(user._id)
-        })
-        .count()
+      categoryModel.find().count()
     ]);
 
     // return success response
     return SuccessResponse(res, {
-      message: Messages.ARTICLES_READ_SUCCESSFULLY,
+      message: Messages.CATEGORIES_READ_SUCCESSFULLY,
       data: {
-        rows: articles,
+        rows: categories,
         pagination: getPaginationParams(count, pageNumber, pageSize)
       }
     });

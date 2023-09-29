@@ -29,6 +29,11 @@ export const Messages = {
   COMMENTS_READ_SUCCESSFULLY: "comments read successfully",
   COMMENT_UPDATED_SUCCESSFULLY: "comment updated successfully",
   COMMENT_DELETED_SUCCESSFULLY: "comment deleted successfully",
+  CATEGORY_CREATED_SUCCESSFULLY: "category created successfully",
+  CATEGORY_UPDATED_SUCCESSFULLY: "category updated successfully",
+  CATEGORY_READ_SUCCESSFULLY: "category read successfully",
+  CATEGORIES_READ_SUCCESSFULLY: "categories read successfully",
+  CATEGORY_DELETED_SUCCESSFULLY: "category deleted successfully",
 
   GLOBAL_ERROR: "an error occurred, please contact support",
   NOT_FOUND_ERROR: "resource not found",
@@ -44,7 +49,11 @@ export const Messages = {
   ARTICLE_NOT_FOUND: "article not found",
   COMMENT_NOT_CREATED: "could not create comment",
   COMMENT_NOT_FOUND: "comment not found",
-  COMMENT_NOT_UPDATED: "could not update comment"
+  COMMENT_NOT_UPDATED: "could not update comment",
+  CATEGORY_NOT_CREATED: "could not create category",
+  CATEGORY_NOT_UPDATED: "could not update category",
+  CATEGORY_NOT_FOUND: "category not found",
+  CATEGORY_ALREADY_EXIST: "Category already exist"
 };
 
 export const RequestType = {

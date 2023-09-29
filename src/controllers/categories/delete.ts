@@ -2,8 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
 import { AuthUser } from "../../abstractions/auth.interface";
-import { WriteArticle } from "../../abstractions/web.interface";
-import articleModel from "../../models/article.model";
+import categoryModel from "../../models/category.model";
 import { Messages } from "../../utils/constants";
 import {
   AuthFailureResponse,
@@ -11,7 +10,7 @@ import {
   SuccessMessageResponse
 } from "../../utils/handler";
 
-export default async function CreateArticle(
+export default async function DeleteCategory(
   req: Request,
   res: Response,
   next: NextFunction
@@ -25,22 +24,20 @@ export default async function CreateArticle(
       return AuthFailureResponse(res);
     }
 
-    // Get the request body
-    const payload: WriteArticle = req.body;
+    // Get category _id from request params
+    const categoryId = req.params._id;
 
-    // Insert article with user detail
-    const article = await articleModel.create({
-      content: payload.content,
-      title: payload.title,
-      user: new mongoose.Types.ObjectId(user._id)
+    // Insert category with user detail
+    const category = await categoryModel.findOneAndDelete({
+      _id: new mongoose.Types.ObjectId(categoryId)
     });
 
-    if (!article) {
-      return FailureResponse(res, Messages.ARTICLE_NOT_CREATED);
+    if (!category) {
+      return FailureResponse(res, Messages.CATEGORY_NOT_FOUND);
     }
 
     // return success response
-    return SuccessMessageResponse(res, Messages.ARTICLE_CREATED_SUCCESSFULLY);
+    return SuccessMessageResponse(res, Messages.CATEGORY_DELETED_SUCCESSFULLY);
   } catch (error) {
     return next(error);
   }

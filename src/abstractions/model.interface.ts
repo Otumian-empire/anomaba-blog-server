@@ -19,3 +19,8 @@ export type Comment = {
   user: mongoose.Types.ObjectId;
   article: mongoose.Types.ObjectId;
 };
+
+export type Category = {
+  _id: mongoose.Types.ObjectId;
+  name: string;
+};

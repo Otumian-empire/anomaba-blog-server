@@ -27,3 +27,7 @@ export const AddComment = Joi.object().keys({
 export const UpdateCommentValidation = Joi.object().keys({
   content: Joi.string().required()
 });
+
+export const CreateCategoryValidation = Joi.object().keys({
+  name: Joi.string().required()
+});

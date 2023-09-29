@@ -12,3 +12,7 @@ export interface ResponseBody {
   message: string;
   data: any;
 }
+
+export interface WriteCategory {
+  name: string;
+}

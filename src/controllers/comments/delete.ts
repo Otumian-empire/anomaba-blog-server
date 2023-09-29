@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 import { AuthUser } from "../../abstractions/auth.interface";
 import commentModel from "../../models/comment.model";
 import { Messages } from "../../utils/constants";
-import { FailureResponse, SuccessMessageResponse } from "../../utils/handler";
+import {
+  AuthFailureResponse,
+  FailureResponse,
+  SuccessMessageResponse
+} from "../../utils/handler";
 
 export default async function DeleteComment(
   req: Request,
@@ -15,6 +19,10 @@ export default async function DeleteComment(
     // Get the auth user, owner of this comment
     // @ts-expect-error: Expected authenticated user
     const user: AuthUser = req.user;
+
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
 
     // Get the comment's id
     const commentId = req.params._id;

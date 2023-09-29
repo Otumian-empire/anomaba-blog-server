@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 import { AuthUser } from "../../abstractions/auth.interface";
 import articleModel from "../../models/article.model";
 import { Messages } from "../../utils/constants";
-import { FailureResponse, SuccessResponse } from "../../utils/handler";
+import {
+  AuthFailureResponse,
+  FailureResponse,
+  SuccessResponse
+} from "../../utils/handler";
 
 export default async function ReadOneArticle(
   req: Request,
@@ -15,6 +19,10 @@ export default async function ReadOneArticle(
     // Get the user object
     // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
+
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
 
     // Get article id from request params
     const _id = req.params._id;

@@ -5,7 +5,11 @@ import { AuthUser } from "../../abstractions/auth.interface";
 import articleModel from "../../models/article.model";
 import commentModel from "../../models/comment.model";
 import { Messages } from "../../utils/constants";
-import { FailureResponse, SuccessResponse } from "../../utils/handler";
+import {
+  AuthFailureResponse,
+  FailureResponse,
+  SuccessResponse
+} from "../../utils/handler";
 
 export default async function CreateComment(
   req: Request,
@@ -16,6 +20,10 @@ export default async function CreateComment(
     // Get auth user
     // @ts-expect-error: Authentication required
     const user: AuthUser = req.user;
+
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
 
     // Get comment and article id
     const content = req.body.content;

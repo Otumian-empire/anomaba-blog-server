@@ -1,13 +1,14 @@
 import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
+import { AuthUser } from "../../abstractions/auth.interface";
 import commentModel from "../../models/comment.model";
 import { Messages } from "../../utils/constants";
 import {
   getPaginationParams,
   setPaginationParams
 } from "../../utils/functions";
-import { SuccessResponse } from "../../utils/handler";
+import { AuthFailureResponse, SuccessResponse } from "../../utils/handler";
 
 export default async function ReadAllComments(
   req: Request,
@@ -15,6 +16,14 @@ export default async function ReadAllComments(
   next: NextFunction
 ) {
   try {
+    // Get the user object
+    // @ts-expect-error: Authentication required
+    const user: AuthUser = req.user;
+
+    if (!user) {
+      return AuthFailureResponse(res);
+    }
+
     // Get the article's id
     const articleId = req.params._id;
 
@@ -30,6 +39,7 @@ export default async function ReadAllComments(
         .find({
           article: new mongoose.Types.ObjectId(articleId)
         })
+        .sort({ createdAt: -1 })
         .select("-__v")
         .populate({
           path: "user",

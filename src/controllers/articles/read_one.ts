@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import mongoose from "mongoose";
 
-import { AuthUser } from "../../abstractions/auth.interface";
 import articleModel from "../../models/article.model";
 import { Messages } from "../../utils/constants";
 import { FailureResponse, SuccessResponse } from "../../utils/handler";
