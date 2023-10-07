@@ -38,3 +38,17 @@ export function SuccessResponse(res: Response, body: ResponseBody) {
     data: body.data
   });
 }
+
+export function NotFoundResponse(res: Response) {
+  return res.status(StatusCode.NOT_FOUND_ERROR).json({
+    success: false,
+    message: Messages.NOT_FOUND_ERROR
+  });
+}
+
+export function JwtErrorResponse(res: Response, message: string) {
+  return res.status(StatusCode.UNAUTHORIZED).json({
+    success: false,
+    message: message
+  });
+}

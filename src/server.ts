@@ -1,11 +1,16 @@
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
+import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
 import mongoose from "mongoose";
 
 import Api from "./controllers";
 import { Messages } from "./utils/constants";
 import Environs from "./utils/environs";
-import { FailureResponse } from "./utils/handler";
+import {
+  FailureResponse,
+  JwtErrorResponse,
+  NotFoundResponse
+} from "./utils/handler";
 import { httpLogger, logger } from "./utils/logger";
 
 const app = express();
@@ -28,11 +33,19 @@ app.use("/api", Api);
 
 // Server error handle
 app.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
+  logger.debug(error);
   logger.error(error);
 
   if (Environs.isDev()) {
-    logger.debug(error);
     return FailureResponse(res, error.message);
+  }
+
+  if (error instanceof TokenExpiredError) {
+    return JwtErrorResponse(res, error.message);
+  }
+
+  if (error instanceof JsonWebTokenError) {
+    return JwtErrorResponse(res, Messages.INVALID_TOKEN);
   }
 
   return FailureResponse(res, Messages.GLOBAL_ERROR);
@@ -40,10 +53,16 @@ app.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
 
 // Not Found Error handler
 app.use((_req: Request, res: Response, _next: NextFunction) => {
-  return FailureResponse(res, Messages.NOT_FOUND_ERROR);
+  return NotFoundResponse(res);
 });
 
 // make sure that database is connected before listening to the port
+// set the `strictQuery` option  to true
+mongoose.set("strictQuery", true);
+
+// show database logging during development
+mongoose.set("debug", Environs.isDev());
+
 mongoose
   .connect(Environs.MONGOOSE_URI)
   .then(() => {
@@ -51,8 +70,10 @@ mongoose
       logger.info(`[+] Listening server on ${port}`);
     });
   })
-  .catch((_err) => {
-    logger.error(Messages.DATABASE_CONNECTION_ERROR);
+  .catch((err) => {
+    logger.debug(Messages.DATABASE_CONNECTION_ERROR);
+    logger.debug(err);
+    logger.error(err);
   });
 
 // listening on the database connection
@@ -60,9 +81,8 @@ mongoose.connection
   .once("open", () => {
     logger.info(Messages.DATABASE_CONNECTED);
   })
-  .on("error", function (_error) {
-    logger.error(Messages.DATABASE_CONNECTION_ERROR);
+  .on("error", (error) => {
+    logger.debug(Messages.DATABASE_CONNECTION_ERROR);
+    logger.debug(error);
+    logger.error(error);
   });
-
-// show database logging during development
-mongoose.set("debug", Environs.isDev());
