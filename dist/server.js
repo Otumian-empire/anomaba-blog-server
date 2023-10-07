@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
+const jsonwebtoken_1 = require("jsonwebtoken");
 const mongoose_1 = __importDefault(require("mongoose"));
 const controllers_1 = __importDefault(require("./controllers"));
 const constants_1 = require("./utils/constants");
@@ -27,18 +28,28 @@ if (environs_1.default.isProd()) {
 app.use("/api", controllers_1.default);
 // Server error handle
 app.use((error, _req, res, _next) => {
+    logger_1.logger.debug(error);
     logger_1.logger.error(error);
     if (environs_1.default.isDev()) {
-        logger_1.logger.debug(error);
         return (0, handler_1.FailureResponse)(res, error.message);
+    }
+    if (error instanceof jsonwebtoken_1.TokenExpiredError) {
+        return (0, handler_1.JwtErrorResponse)(res, error.message);
+    }
+    if (error instanceof jsonwebtoken_1.JsonWebTokenError) {
+        return (0, handler_1.JwtErrorResponse)(res, constants_1.Messages.INVALID_TOKEN);
     }
     return (0, handler_1.FailureResponse)(res, constants_1.Messages.GLOBAL_ERROR);
 });
 // Not Found Error handler
 app.use((_req, res, _next) => {
-    return (0, handler_1.FailureResponse)(res, constants_1.Messages.NOT_FOUND_ERROR);
+    return (0, handler_1.NotFoundResponse)(res);
 });
 // make sure that database is connected before listening to the port
+// set the `strictQuery` option  to true
+mongoose_1.default.set("strictQuery", true);
+// show database logging during development
+mongoose_1.default.set("debug", environs_1.default.isDev());
 mongoose_1.default
     .connect(environs_1.default.MONGOOSE_URI)
     .then(() => {
@@ -46,16 +57,18 @@ mongoose_1.default
         logger_1.logger.info(`[+] Listening server on ${port}`);
     });
 })
-    .catch((_err) => {
-    logger_1.logger.error(constants_1.Messages.DATABASE_CONNECTION_ERROR);
+    .catch((err) => {
+    logger_1.logger.debug(constants_1.Messages.DATABASE_CONNECTION_ERROR);
+    logger_1.logger.debug(err);
+    logger_1.logger.error(err);
 });
 // listening on the database connection
 mongoose_1.default.connection
     .once("open", () => {
     logger_1.logger.info(constants_1.Messages.DATABASE_CONNECTED);
 })
-    .on("error", function (_error) {
-    logger_1.logger.error(constants_1.Messages.DATABASE_CONNECTION_ERROR);
+    .on("error", (error) => {
+    logger_1.logger.debug(constants_1.Messages.DATABASE_CONNECTION_ERROR);
+    logger_1.logger.debug(error);
+    logger_1.logger.error(error);
 });
-// show database logging during development
-mongoose_1.default.set("debug", environs_1.default.isDev());
