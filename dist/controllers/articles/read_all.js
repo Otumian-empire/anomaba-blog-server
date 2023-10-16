@@ -26,12 +26,16 @@ function ReadAllArticles(req, res, next) {
             const [articles, count] = yield Promise.all([
                 article_model_1.default
                     .find()
-                    .sort({ createdAt: -1 })
-                    .select("-__v")
                     .populate({
                     path: "user",
                     select: ["username"]
                 })
+                    .populate({
+                    path: "category",
+                    select: ["name"]
+                })
+                    .sort({ createdAt: -1 })
+                    .select("-__v")
                     .skip((pageNumber - 1) * pageSize)
                     .limit(pageSize)
                     .exec(),

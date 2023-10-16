@@ -33,6 +33,14 @@ function ReadOneArticle(req, res, next) {
                 user: new mongoose_1.default.Types.ObjectId(user._id),
                 _id: new mongoose_1.default.Types.ObjectId(_id)
             })
+                .populate({
+                path: "user",
+                select: ["username", "_id"]
+            })
+                .populate({
+                path: "category",
+                select: ["name", "_id"]
+            })
                 .select("-__v")
                 .exec());
             if (!article) {
