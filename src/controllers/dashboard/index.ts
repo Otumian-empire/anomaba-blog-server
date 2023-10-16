@@ -12,13 +12,19 @@ import DeleteArticle from "./delete";
 import ReadAllArticles from "./read_all";
 import ReadOneArticle from "./read_one";
 import UpdateArticle from "./update";
+import UploadFileMiddleware from "../../validations/image_upload_middleware";
 
 const router = Router();
 
 // Dashboard endpoints
 router.use(AuthMiddleware);
 
-router.post("/", ValidationMiddleware(WriteArticle), CreateArticle);
+router.post(
+  "/",
+  UploadFileMiddleware,
+  ValidationMiddleware(WriteArticle),
+  CreateArticle
+);
 
 router.put(
   "/:_id",

@@ -32,6 +32,14 @@ export default async function ReadAllArticles(
         .find({
           user: new mongoose.Types.ObjectId(user._id)
         })
+        .populate({
+          path: "user",
+          select: ["username", "_id"]
+        })
+        .populate({
+          path: "category",
+          select: ["name", "_id"]
+        })
         .sort({ createdAt: -1 })
         .select("-__v")
         .skip((pageNumber - 1) * pageSize)

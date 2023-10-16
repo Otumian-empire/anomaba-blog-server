@@ -6,6 +6,14 @@ export interface BasicAuth {
 export interface WriteArticle {
   title: string;
   content: string;
+  category: string;
+  imageUrl: string;
+  status: ArticleStatus;
+}
+
+export enum ArticleStatus {
+  Public = "public",
+  Draft = "draft"
 }
 
 export interface ResponseBody {

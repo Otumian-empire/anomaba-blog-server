@@ -26,6 +26,14 @@ function ReadOneArticle(req, res, next) {
                 .findOne({
                 _id: new mongoose_1.default.Types.ObjectId(_id)
             })
+                .populate({
+                path: "user",
+                select: ["username"]
+            })
+                .populate({
+                path: "category",
+                select: ["name"]
+            })
                 .select("-__v")
                 .exec());
             if (!article) {

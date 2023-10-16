@@ -17,6 +17,7 @@ const article_model_1 = __importDefault(require("../../models/article.model"));
 const constants_1 = require("../../utils/constants");
 const handler_1 = require("../../utils/handler");
 function CreateArticle(req, res, next) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // Get the user object
@@ -31,6 +32,8 @@ function CreateArticle(req, res, next) {
             const article = yield article_model_1.default.create({
                 content: payload.content,
                 title: payload.title,
+                imageUrl: (_a = req.file) === null || _a === void 0 ? void 0 : _a.filename,
+                category: new mongoose_1.default.Types.ObjectId(payload.category),
                 user: new mongoose_1.default.Types.ObjectId(user._id)
             });
             if (!article) {
