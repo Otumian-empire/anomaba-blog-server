@@ -34,6 +34,14 @@ export default async function ReadOneArticle(
           user: new mongoose.Types.ObjectId(user._id),
           _id: new mongoose.Types.ObjectId(_id)
         })
+        .populate({
+          path: "user",
+          select: ["username", "_id"]
+        })
+        .populate({
+          path: "category",
+          select: ["name", "_id"]
+        })
         .select("-__v")
         .exec()
     );

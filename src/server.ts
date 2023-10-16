@@ -1,3 +1,5 @@
+import path from "path";
+
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
@@ -18,6 +20,8 @@ const port = Environs.PORT;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "uploads")));
+
 app.use(express.json());
 app.use(cors({ credentials: true, origin: "*" }));
 app.disable("x-powered-by");

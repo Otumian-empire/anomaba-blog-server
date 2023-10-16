@@ -26,12 +26,14 @@ export default async function CreateArticle(
     }
 
     // Get the request body
-    const payload: WriteArticle = req.body;
+    const payload: WriteArticle = req.body;    
 
     // Insert article with user detail
     const article = await articleModel.create({
       content: payload.content,
       title: payload.title,
+      imageUrl: req.file?.filename,
+      category: new mongoose.Types.ObjectId(payload.category),
       user: new mongoose.Types.ObjectId(user._id)
     });
 

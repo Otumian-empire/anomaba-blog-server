@@ -20,6 +20,14 @@ export default async function ReadOneArticle(
         .findOne({
           _id: new mongoose.Types.ObjectId(_id)
         })
+        .populate({
+          path: "user",
+          select: ["username"]
+        })
+        .populate({
+          path: "category",
+          select: ["name"]
+        })
         .select("-__v")
         .exec()
     );

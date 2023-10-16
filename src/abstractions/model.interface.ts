@@ -11,6 +11,9 @@ export type Article = {
   title: string;
   content: string;
   user: mongoose.Types.ObjectId;
+  category: mongoose.Types.ObjectId;
+  imageUrl: string;
+  status: string;
 };
 
 export type Comment = {

@@ -1,4 +1,5 @@
 import Joi from "joi";
+import { ArticleStatus } from "../abstractions/web.interface";
 
 export const BasicAuth = Joi.object().keys({
   username: Joi.string().required(),
@@ -7,7 +8,9 @@ export const BasicAuth = Joi.object().keys({
 
 export const WriteArticle = Joi.object().keys({
   title: Joi.string().required(),
-  content: Joi.string().required()
+  content: Joi.string().required(),
+  category: Joi.string().required(),
+  status: Joi.string().valid(ArticleStatus.Draft, ArticleStatus.Public).required()
 });
 
 export const IdParameter = Joi.object().keys({
