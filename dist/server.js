@@ -17,7 +17,7 @@ const app = (0, express_1.default)();
 const port = environs_1.default.PORT;
 // Middleware
 app.use(express_1.default.urlencoded({ extended: false }));
-app.use(express_1.default.static(path_1.default.join(__dirname, "uploads")));
+app.use("/uploads", express_1.default.static(path_1.default.join(__dirname, "uploads")));
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({ credentials: true, origin: "*" }));
 app.disable("x-powered-by");
