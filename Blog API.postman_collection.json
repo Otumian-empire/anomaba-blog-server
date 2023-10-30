@@ -1,0 +1,1751 @@
+{
+	"info": {
+		"_postman_id": "1632ac1b-c68a-4351-8574-960b233138e5",
+		"name": "Blog API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29493232",
+		"_collection_link": "https://the-brick-to-castle-engineers.postman.co/workspace/Team-Workspace~ded08a3b-0669-4ec9-85b6-5104fdaa7414/collection/29493232-1632ac1b-c68a-4351-8574-960b233138e5?action=share&source=collection_link&creator=29493232"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"johndoe5\",\n    \"password\": \"Password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users/auth/signup",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "signup",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"johndoes\",\n    \"password\": \"Password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users/auth/signup",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "498"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f2-29wPlVQ6ej3KhHN+cBAPwF5QZk8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2023 14:06:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"account created successfully\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OTJlOGNmNmI1MzBkYjEzMDA5OTkiLCJpYXQiOjE2OTM3NDk5OTIsImV4cCI6MTY5Mzc1MTc5MiwiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.B-GzbNL7kxMZ1k3mxZwiE17qh888gCRtpr_yJJc66RY\",\n        \"user\": {\n            \"_id\": \"64f492e8cf6b530db1300999\",\n            \"username\": \"johndoes\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"johndoes\",\n    \"password\": \"Password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"johndoes\",\n    \"password\": \"Password123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users/auth/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "492"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ec-JNJLD5IvOZQBJoljMkwMfvWFXuQ\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2023 14:03:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"logged in successfully\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OGZkZGJhNjdiNmQ5Njg1NzQ1YmEiLCJpYXQiOjE2OTM3NDk4MTUsImV4cCI6MTY5Mzc1MTYxNSwiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.MB4mjtM9H8kwLCbx3shMvtXr-z73Z4lcQt1Y3nrXBq0\",\n        \"user\": {\n            \"_id\": \"64f48fddba67b6d9685745ba\",\n            \"username\": \"johndoes\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "articles",
+			"item": [
+				{
+					"name": "read all articles",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/articles?pageNumber=1&pageSize=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"articles"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read all articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/articles?pageNumber=1&pageSize=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"articles"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "863"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35f-8QURcpvQqna2v+aqF+/wrhsS32I\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 08:49:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"articles read successfully\",\n    \"data\": {\n        \"rows\": [\n            {\n                \"_id\": \"64f515594a4ad09224aea58c\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-03T23:23:05.502Z\",\n                \"updatedAt\": \"2023-09-03T23:23:05.502Z\"\n            },\n            {\n                \"_id\": \"64f5156a4a4ad09224aea58f\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-03T23:23:22.303Z\",\n                \"updatedAt\": \"2023-09-03T23:23:22.303Z\"\n            },\n            {\n                \"_id\": \"64f5156b4a4ad09224aea595\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-03T23:23:23.720Z\",\n                \"updatedAt\": \"2023-09-03T23:23:23.720Z\"\n            }\n        ],\n        \"pagination\": {\n            \"pageNumber\": 1,\n            \"pageSize\": 2,\n            \"totalCount\": 3\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "read one article",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/articles/65211b59e46345e64c0f2ca7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"articles",
+								"65211b59e46345e64c0f2ca7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read one article",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/articles/64f515594a4ad09224aea58c",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"articles",
+										"64f515594a4ad09224aea58c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "275"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"113-fU+3rKF8hg57c4CtWWa8DW1Hs+w\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 08:52:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"article read successfully\",\n    \"data\": {\n        \"_id\": \"64f515594a4ad09224aea58c\",\n        \"title\": \"Hello there\",\n        \"content\": \"This is a sample article from me\",\n        \"user\": \"64f492e8cf6b530db1300999\",\n        \"createdAt\": \"2023-09-03T23:23:05.502Z\",\n        \"updatedAt\": \"2023-09-03T23:23:05.502Z\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "create article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMWIxNmU0NjM0NWU2NGMwZjJjYTMiLCJpYXQiOjE2OTY2Njg0NzcsImV4cCI6MTY5NjY3MDI3NywiYXVkIjoiYXVkaWVuY2U6MWNNcnBDUlhrR3l4SlNvNDgxNUMwZE8zaVZzT2Y4ckNLaGlGd0lleFBMYlF1VEo1SDYiLCJpc3MiOiJpc3N1ZXI6THFqTnZqZ0xXVlhKNzlBc2Y0ekFqQXFZQXRPek5BNmlsVG1haHNKZUlGeXE3aXgwRHAifQ.u_y9HHuRAVXDZDYt78Lv4nahl3pjFu0DlI8alxyU0Oo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"What can you do about the bread?\",\n    \"content\":\"Before the world became what it is today, we were bread, winners, get it?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/dashboard",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create article",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"Hello there\",\n    \"content\":\"This is a sample article from me\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dashboard",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dashboard"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-Pn+Sj6Ms7iIslpk5s1SBb5UNtas\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 03 Sep 2023 23:23:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"article created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMWIxNmU0NjM0NWU2NGMwZjJjYTMiLCJpYXQiOjE2OTY2Njg0MzksImV4cCI6MTY5NjY3MDIzOSwiYXVkIjoiYXVkaWVuY2U6MWNNcnBDUlhrR3l4SlNvNDgxNUMwZE8zaVZzT2Y4ckNLaGlGd0lleFBMYlF1VEo1SDYiLCJpc3MiOiJpc3N1ZXI6THFqTnZqZ0xXVlhKNzlBc2Y0ekFqQXFZQXRPek5BNmlsVG1haHNKZUlGeXE3aXgwRHAifQ.30yYafz59VdGxyuGnNUnr1syS3xZq5kjdRrgn7IOONQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Hello there\",\n    \"content\":\"This is a sample article from me\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/dashboard/65211b59e46345e64c0f2ca7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"65211b59e46345e64c0f2ca7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update article",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"Hello there\",\n    \"content\":\"This is a sample article from me\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/dashboard/64f515264a4ad09224aea589",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"64f515264a4ad09224aea589"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "166"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a6-M9wrzLU88V7/la0G/OwyZwpQ2r8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 00:02:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"article updated successfully\",\n    \"data\": {\n        \"_id\": \"64f515264a4ad09224aea589\",\n        \"title\": \"Hello there\",\n        \"content\": \"This is a sample article from me\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "read all articles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMTc4ODZjZTUyMDM4MTgyMDE5YWYiLCJpYXQiOjE2OTY2Njc1NzUsImV4cCI6MTY5NzI2NzU3NSwiYXVkIjoiaGdmZGpoZ2poazg2NGdmamhmZ2oiLCJpc3MiOiJxYXdzZXFlMTIzNTU1NiJ9.gJlR2M6RuNJY-wAXdc68a0Swpve7C2psc4wsD6U0D-U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/dashboard?pageNumber=1&pageSize=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read all articles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/dashboard?pageNumber=1&pageSize=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dashboard"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b0-G4eSjInCXace437CH68LpX9tE90\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 08:20:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"article read successfully\",\n    \"data\": {\n        \"rows\": [\n            {\n                \"_id\": \"64f515264a4ad09224aea589\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": \"64f492e8cf6b530db1300999\",\n                \"createdAt\": \"2023-09-03T23:22:14.958Z\",\n                \"updatedAt\": \"2023-09-04T00:02:09.339Z\"\n            },\n            {\n                \"_id\": \"64f515594a4ad09224aea58c\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": \"64f492e8cf6b530db1300999\",\n                \"createdAt\": \"2023-09-03T23:23:05.502Z\",\n                \"updatedAt\": \"2023-09-03T23:23:05.502Z\"\n            },\n            {\n                \"_id\": \"64f5156a4a4ad09224aea58f\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": \"64f492e8cf6b530db1300999\",\n                \"createdAt\": \"2023-09-03T23:23:22.303Z\",\n                \"updatedAt\": \"2023-09-03T23:23:22.303Z\"\n            },\n            {\n                \"_id\": \"64f5156b4a4ad09224aea592\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": \"64f492e8cf6b530db1300999\",\n                \"createdAt\": \"2023-09-03T23:23:23.049Z\",\n                \"updatedAt\": \"2023-09-03T23:23:23.049Z\"\n            },\n            {\n                \"_id\": \"64f5156b4a4ad09224aea595\",\n                \"title\": \"Hello there\",\n                \"content\": \"This is a sample article from me\",\n                \"user\": \"64f492e8cf6b530db1300999\",\n                \"createdAt\": \"2023-09-03T23:23:23.720Z\",\n                \"updatedAt\": \"2023-09-03T23:23:23.720Z\"\n            }\n        ],\n        \"pagination\": {\n            \"pageNumber\": 1,\n            \"pageSize\": 2,\n            \"totalCount\": 5\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "read one article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMTc4ODZjZTUyMDM4MTgyMDE5YWYiLCJpYXQiOjE2OTY2Njc1NzUsImV4cCI6MTY5NzI2NzU3NSwiYXVkIjoiaGdmZGpoZ2poazg2NGdmamhmZ2oiLCJpc3MiOiJxYXdzZXFlMTIzNTU1NiJ9.gJlR2M6RuNJY-wAXdc68a0Swpve7C2psc4wsD6U0D-U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/dashboard/652118296ce52038182019ce",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"652118296ce52038182019ce"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read one article",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/dashboard/64f515264a4ad09224aea589",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"64f515264a4ad09224aea589"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "275"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"113-SB4YsrThuPAlR+8KxfHZxmqNYaA\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 08:34:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"article read successfully\",\n    \"data\": {\n        \"_id\": \"64f515264a4ad09224aea589\",\n        \"title\": \"Hello there\",\n        \"content\": \"This is a sample article from me\",\n        \"user\": \"64f492e8cf6b530db1300999\",\n        \"createdAt\": \"2023-09-03T23:22:14.958Z\",\n        \"updatedAt\": \"2023-09-04T00:02:09.339Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMTc4ODZjZTUyMDM4MTgyMDE5YWYiLCJpYXQiOjE2OTY2Njc1NzUsImV4cCI6MTY5NzI2NzU3NSwiYXVkIjoiaGdmZGpoZ2poazg2NGdmamhmZ2oiLCJpc3MiOiJxYXdzZXFlMTIzNTU1NiJ9.gJlR2M6RuNJY-wAXdc68a0Swpve7C2psc4wsD6U0D-U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/dashboard/652118296ce52038182019ce",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"dashboard",
+								"652118296ce52038182019ce"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete article",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/dashboard/64f5156b4a4ad09224aea592",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"dashboard",
+										"64f5156b4a4ad09224aea592"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-zybeRwOZ2uia1VLrdxWfxg3WssY\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 08:41:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"article deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "create comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OTJlOGNmNmI1MzBkYjEzMDA5OTkiLCJpYXQiOjE2OTM4MjY3MTMsImV4cCI6MTY5MzgyODUxMywiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.ib17VF-HfkPzep-SkoMaxvKj_0JaUgOGgZktKz2hlFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"sample comment\",\n    \"articleId\":\"64f515594a4ad09224aea58c\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/comments/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"content\":\"sample comment\",\n    \"articleId\":\"64f515594a4ad09224aea58c\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"comments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c5-re01Vc5GWOWYDqIbccfKx+xl/7g\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 11:30:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"comment created successfully\",\n    \"data\": {\n        \"_id\": \"64f5bfca671971c4ca681b86\",\n        \"article\": \"64f515594a4ad09224aea58c\",\n        \"user\": \"64f492e8cf6b530db1300999\",\n        \"content\": \"sample comment\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "read one comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OTJlOGNmNmI1MzBkYjEzMDA5OTkiLCJpYXQiOjE2OTM4MjY3MTMsImV4cCI6MTY5MzgyODUxMywiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.ib17VF-HfkPzep-SkoMaxvKj_0JaUgOGgZktKz2hlFA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/comments/64f5bfca671971c4ca681b86",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"64f5bfca671971c4ca681b86"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read one comment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/comments/64f5bfca671971c4ca681b86",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"64f5bfca671971c4ca681b86"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "224"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e0-gDEZGH57YGh7cwlHR9Z4ATsxGRo\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 11:47:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"comment read successfully\",\n    \"data\": {\n        \"_id\": \"64f5bfca671971c4ca681b86\",\n        \"article\": \"64f515594a4ad09224aea58c\",\n        \"user\": {\n            \"_id\": \"64f492e8cf6b530db1300999\",\n            \"username\": \"johndoes\"\n        },\n        \"content\": \"sample comment\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "read all comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OTJlOGNmNmI1MzBkYjEzMDA5OTkiLCJpYXQiOjE2OTM4Mjg3NzAsImV4cCI6MTY5MzgzMDU3MCwiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.7NpX0DY3sDKTA1rWLlu8Mr-iQOkl6kEGOT7ogbQGVcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/comments/article/64f515594a4ad09224aea58c?pageNumber=1&pageSize=5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"article",
+								"64f515594a4ad09224aea58c"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read all comments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/comments/article/64f515594a4ad09224aea58c?pageNumber=1&pageSize=5",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"article",
+										"64f515594a4ad09224aea58c"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"538-1KTq0JxTzYg1Y/2N9vUW3cTtxRM\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 12:01:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"comments read successfully\",\n    \"data\": {\n        \"rows\": [\n            {\n                \"_id\": \"64f5bfca671971c4ca681b86\",\n                \"content\": \"sample comment\",\n                \"article\": \"64f515594a4ad09224aea58c\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-04T11:30:18.451Z\",\n                \"updatedAt\": \"2023-09-04T11:30:18.451Z\"\n            },\n            {\n                \"_id\": \"64f5c428312f0c83d9481ab6\",\n                \"content\": \"sample comment\",\n                \"article\": \"64f515594a4ad09224aea58c\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-04T11:48:56.465Z\",\n                \"updatedAt\": \"2023-09-04T11:48:56.465Z\"\n            },\n            {\n                \"_id\": \"64f5c429312f0c83d9481aba\",\n                \"content\": \"sample comment\",\n                \"article\": \"64f515594a4ad09224aea58c\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-04T11:48:57.565Z\",\n                \"updatedAt\": \"2023-09-04T11:48:57.565Z\"\n            },\n            {\n                \"_id\": \"64f5c42a312f0c83d9481abe\",\n                \"content\": \"sample comment\",\n                \"article\": \"64f515594a4ad09224aea58c\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-04T11:48:58.652Z\",\n                \"updatedAt\": \"2023-09-04T11:48:58.652Z\"\n            },\n            {\n                \"_id\": \"64f5c42b312f0c83d9481ac2\",\n                \"content\": \"sample comment\",\n                \"article\": \"64f515594a4ad09224aea58c\",\n                \"user\": {\n                    \"_id\": \"64f492e8cf6b530db1300999\",\n                    \"username\": \"johndoes\"\n                },\n                \"createdAt\": \"2023-09-04T11:48:59.632Z\",\n                \"updatedAt\": \"2023-09-04T11:48:59.632Z\"\n            }\n        ],\n        \"pagination\": {\n            \"pageNumber\": 2,\n            \"pageSize\": 5,\n            \"totalCount\": 6\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "update comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OTJlOGNmNmI1MzBkYjEzMDA5OTkiLCJpYXQiOjE2OTM4Mjg3NzAsImV4cCI6MTY5MzgzMDU3MCwiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.7NpX0DY3sDKTA1rWLlu8Mr-iQOkl6kEGOT7ogbQGVcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":\"this is an updated comment 1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/comments/64f5bfca671971c4ca681b86",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"64f5bfca671971c4ca681b86"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update comment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"content\":\"this is an updated comment 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/comments/64f5bfca671971c4ca681b86",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"64f5bfca671971c4ca681b86"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d3-lui+Z2x2JzMa/bfjXWYQHeQRS10\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 12:16:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"comment updated successfully\",\n    \"data\": {\n        \"_id\": \"64f5bfca671971c4ca681b86\",\n        \"article\": \"64f515594a4ad09224aea58c\",\n        \"user\": \"64f492e8cf6b530db1300999\",\n        \"content\": \"this is an updated comment 1\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGY0OTJlOGNmNmI1MzBkYjEzMDA5OTkiLCJpYXQiOjE2OTM4Mjg3NzAsImV4cCI6MTY5MzgzMDU3MCwiYXVkIjoiYXVkaWVuY2U6cENSWHdJZVZ5eEpDdVRKNUg2U280MTVrRzgzMGQxY01yT2lGc09mUThyQ0toaXhQTGIiLCJpc3MiOiJpc3N1ZXI6WUF0akFOQXE5QXNmTFdpdmpnbTRqTkY3ekFxVlh5T3pMSnFsVDY3YWhzSmVJaXgwRHAifQ.7NpX0DY3sDKTA1rWLlu8Mr-iQOkl6kEGOT7ogbQGVcE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/comments/64f5c428312f0c83d9481ab6",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"comments",
+								"64f5c428312f0c83d9481ab6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete comment",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/comments/64f5bfca671971c4ca681b86",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"comments",
+										"64f5bfca671971c4ca681b86"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"39-0PpnXqt2AQERwnqKmEURI1mjq1w\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 04 Sep 2023 12:21:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"comment deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMTc4ODZjZTUyMDM4MTgyMDE5YWYiLCJpYXQiOjE2OTY2Njc1NzUsImV4cCI6MTY5NzI2NzU3NSwiYXVkIjoiaGdmZGpoZ2poazg2NGdmamhmZ2oiLCJpc3MiOiJxYXdzZXFlMTIzNTU1NiJ9.gJlR2M6RuNJY-wAXdc68a0Swpve7C2psc4wsD6U0D-U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"religion\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"Fishing\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-U3eLRRmCDPNuAjVptc8xYB/7uw8\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Sep 2023 20:18:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"category created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "read categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMTc4ODZjZTUyMDM4MTgyMDE5YWYiLCJpYXQiOjE2OTY2Njc1NzUsImV4cCI6MTY5NzI2NzU3NSwiYXVkIjoiaGdmZGpoZ2poazg2NGdmamhmZ2oiLCJpc3MiOiJxYXdzZXFlMTIzNTU1NiJ9.gJlR2M6RuNJY-wAXdc68a0Swpve7C2psc4wsD6U0D-U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "read categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/categories?pageNumber=1&pageSize=3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"categories"
+									],
+									"query": [
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "511"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ff-txsxVZyDih/npWUgVXCP2QVsuRk\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Sep 2023 20:25:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"categories read successfully\",\n    \"data\": {\n        \"rows\": [\n            {\n                \"_id\": \"651731cd594bbbc3528191ba\",\n                \"createdAt\": \"2023-09-29T20:21:33.050Z\",\n                \"updatedAt\": \"2023-09-29T20:21:33.050Z\"\n            },\n            {\n                \"_id\": \"65173182594bbbc3528191b6\",\n                \"name\": \"engineering\",\n                \"createdAt\": \"2023-09-29T20:20:18.979Z\",\n                \"updatedAt\": \"2023-09-29T20:20:18.979Z\"\n            },\n            {\n                \"_id\": \"6517317f594bbbc3528191b2\",\n                \"name\": \"software\",\n                \"createdAt\": \"2023-09-29T20:20:15.465Z\",\n                \"updatedAt\": \"2023-09-29T20:20:15.465Z\"\n            }\n        ],\n        \"pagination\": {\n            \"pageNumber\": 2,\n            \"pageSize\": 3,\n            \"totalCount\": 9\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "delete one category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIxMTc4ODZjZTUyMDM4MTgyMDE5YWYiLCJpYXQiOjE2OTY2Njc1NzUsImV4cCI6MTY5NzI2NzU3NSwiYXVkIjoiaGdmZGpoZ2poazg2NGdmamhmZ2oiLCJpc3MiOiJxYXdzZXFlMTIzNTU1NiJ9.gJlR2M6RuNJY-wAXdc68a0Swpve7C2psc4wsD6U0D-U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/categories/6521193b6ce52038182019f7",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"6521193b6ce52038182019f7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "delete one category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/categories/6517317f594bbbc3528191b2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"categories",
+										"6517317f594bbbc3528191b2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3a-JWL3u45lHJGUrd3FawkY1gonKZs\""
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 29 Sep 2023 20:27:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"category deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
