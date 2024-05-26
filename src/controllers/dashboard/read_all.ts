@@ -45,11 +45,9 @@ export default async function ReadAllArticles(
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
         .exec(),
-      articleModel
-        .find({
-          user: new mongoose.Types.ObjectId(user._id)
-        })
-        .count()
+      articleModel.countDocuments({
+        user: new mongoose.Types.ObjectId(user._id)
+      })
     ]);
 
     // return success response

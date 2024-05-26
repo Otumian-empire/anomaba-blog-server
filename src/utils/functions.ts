@@ -8,7 +8,8 @@ export function getPaginationParams(
   return {
     pageNumber:
       pageNumber * pageSize < count ? pageNumber + 1 : Pagination.PAGE_NUMBER,
-    pageSize: pageSize <= count ? pageSize : count - 1,
+    pageSize:
+      pageSize <= count ? pageSize : Math.min(Pagination.PAGE_SIZE, count),
     totalCount: count
   };
 }

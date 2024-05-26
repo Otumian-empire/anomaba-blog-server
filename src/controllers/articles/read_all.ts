@@ -37,7 +37,7 @@ export default async function ReadAllArticles(
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
         .exec(),
-      articleModel.find().count()
+      articleModel.countDocuments()
     ]);
 
     // return success response

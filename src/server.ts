@@ -1,9 +1,8 @@
-import path from "path";
-
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
 import mongoose from "mongoose";
+import path from "path";
 
 import Api from "./controllers";
 import { Messages } from "./utils/constants";

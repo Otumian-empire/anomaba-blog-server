@@ -67,6 +67,5 @@ export const RequestType = {
 
 export const Pagination = {
   PAGE_NUMBER: 1,
-  PAGE_SIZE: 20,
-  PAGE_SIZE_OF_THIRTY_PERCENT: 0.3
+  PAGE_SIZE: 20
 };
