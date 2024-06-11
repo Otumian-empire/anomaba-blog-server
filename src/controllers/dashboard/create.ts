@@ -32,7 +32,6 @@ export default async function CreateArticle(
     const article = await articleModel.create({
       content: payload.content,
       title: payload.title,
-      // @ts-expect-error: error expected when there is no file
       imageUrl: req.file?.filename,
       category: new mongoose.Types.ObjectId(payload.category),
       user: new mongoose.Types.ObjectId(user._id)

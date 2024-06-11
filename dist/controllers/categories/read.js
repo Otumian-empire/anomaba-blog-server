@@ -37,7 +37,7 @@ function ReadAllCategories(req, res, next) {
                     .skip((pageNumber - 1) * pageSize)
                     .limit(pageSize)
                     .exec(),
-                category_model_1.default.find().count()
+                category_model_1.default.find().countDocuments()
             ]);
             // return success response
             return (0, handler_1.SuccessResponse)(res, {

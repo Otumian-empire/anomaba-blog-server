@@ -39,7 +39,7 @@ function ReadAllArticles(req, res, next) {
                     .skip((pageNumber - 1) * pageSize)
                     .limit(pageSize)
                     .exec(),
-                article_model_1.default.find().count()
+                article_model_1.default.countDocuments()
             ]);
             // return success response
             return (0, handler_1.SuccessResponse)(res, {

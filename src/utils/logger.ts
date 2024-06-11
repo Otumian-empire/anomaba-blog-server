@@ -1,6 +1,8 @@
 import morgan from "morgan";
 import morganJson from "morgan-json";
 import { config, createLogger, transports } from "winston";
+import GelfTransport from "winston-gelf";
+import WinstonGelfTransporter from 'winston-gelf-transporter';
 
 // TODO: for console.transport check if system is in dev mode
 const loggingOptions = {
@@ -35,7 +37,29 @@ export const logger = createLogger({
   levels: config.npm.levels,
   transports: [
     new transports.Console(loggingOptions.console),
-    new transports.File(loggingOptions.file)
+    // new GelfTransport({
+    //   gelfPro: {
+    //     fields: {
+    //       env: process.env.NODE_ENV ?? 'development'
+    //     },
+    //     adapterName: 'udp',
+    //     adapterOptions: {
+    //       host: 'http://192.168.1.107', // Replace per your Graylog domain
+    //       port: 12201,
+    //     }
+    //   }
+    // }),
+    new WinstonGelfTransporter({
+      host: 'http://192.168.1.107', // Replace per your Graylog domain
+      port: 12201,
+      hostName: 'localhost',
+      additional: {
+        env: process.env.NODE_ENV ?? 'development',
+        syslogTag: 'anomaba-server',
+        date: new Date().toISOString(),
+      }
+    })
+    // new transports.File(loggingOptions.file)
   ],
   exitOnError: false
 });

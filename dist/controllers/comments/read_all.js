@@ -50,7 +50,7 @@ function ReadAllComments(req, res, next) {
                     .find({
                     article: new mongoose_1.default.Types.ObjectId(articleId)
                 })
-                    .count()
+                    .countDocuments()
             ]);
             // return success response
             return (0, handler_1.SuccessResponse)(res, {

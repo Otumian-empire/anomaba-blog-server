@@ -49,7 +49,7 @@ function ReadAllArticles(req, res, next) {
                     .find({
                     user: new mongoose_1.default.Types.ObjectId(user._id)
                 })
-                    .count()
+                    .countDocuments()
             ]);
             // return success response
             return (0, handler_1.SuccessResponse)(res, {

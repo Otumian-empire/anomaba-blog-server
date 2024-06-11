@@ -66,6 +66,8 @@ mongoose.set("strictQuery", true);
 // show database logging during development
 mongoose.set("debug", Environs.isDev());
 
+logger.info("[+] Logging to Graylog", {});
+
 mongoose
   .connect(Environs.MONGOOSE_URI)
   .then(() => {

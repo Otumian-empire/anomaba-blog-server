@@ -38,7 +38,7 @@ export default async function ReadAllCategories(
         .skip((pageNumber - 1) * pageSize)
         .limit(pageSize)
         .exec(),
-      categoryModel.find().count()
+      categoryModel.countDocuments()
     ]);
 
     // return success response

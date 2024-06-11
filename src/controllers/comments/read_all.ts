@@ -49,10 +49,9 @@ export default async function ReadAllComments(
         .limit(pageSize)
         .exec(),
       commentModel
-        .find({
+        .countDocuments({
           article: new mongoose.Types.ObjectId(articleId)
         })
-        .count()
     ]);
 
     // return success response
